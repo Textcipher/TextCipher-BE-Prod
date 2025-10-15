@@ -208,3 +208,5 @@ __marimo__/
 
 
 docker-compose.yml
+Dockerfile
+00*_initial.py

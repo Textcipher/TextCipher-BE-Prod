@@ -28,8 +28,10 @@ class MessageView(viewsets.ViewSet):
     def create(self, request):
         ip = get_client_ip(request)
         guest_token = request.COOKIES.get('token')
+        print(guest_token)
         if guest_token in INVALID_TOKEN:
             guest_token = generate_unique_token()
+            print("New Guest Token:", guest_token)
         content = request.data.get('content')
         expire_after = request.data.get('expire_after', 5)
         unique_id = create_unique_id()
@@ -106,8 +108,10 @@ class MessageView(viewsets.ViewSet):
                         token = token.encode("utf-8")
                     
                     guest_token = request.COOKIES.get('token')
+                    print(guest_token)
                     if guest_token in INVALID_TOKEN:
                         guest_token = generate_unique_token()
+                        print("New Guest Token:", guest_token)
 
                     decrypted_content = f.decrypt(token).decode()
                     ip_instance, created = IPAddress.objects.get_or_create(ip_address=ip)
@@ -141,8 +145,10 @@ class MessageView(viewsets.ViewSet):
     @action(detail=True, methods=['post'], url_path='validate')
     def validate(self, request, pk=None):
         guest_token = request.COOKIES.get('token')
+        print("Guest Token:", guest_token)
         if guest_token in INVALID_TOKEN:
             guest_token = generate_unique_token()
+            print("New Guest Token:", guest_token)
         message_id = pk[6:]
         expired_messages = MessageV2.objects.filter(seen_by__isnull=True, expires_at__lt=timezone.now())
         for expired_message in expired_messages:

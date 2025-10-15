@@ -14,6 +14,6 @@ COPY requirements.txt /app/
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8003
+EXPOSE 8002
 
-CMD ["gunicorn", "Bebelet.wsgi:application", "--bind", "0.0.0.0:8003"]
+CMD ["gunicorn", "TextCipher.wsgi:application", "--bind", "0.0.0.0:8002"]
