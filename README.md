@@ -25,7 +25,7 @@ This repository is the engine, but **TextCipher's main website** is the place wh
 
 The most effective way to protect your secrets is with TextCipher. Visit the live platform today:
 
-**👉 [TextCipher.com | Create Encrypted Self-Destructing Messages](https://www.textcipher.com)**
+**👉 [TextCipher | Create Secure One-Time Messages](https://textcipher.com)**
 
 *(By linking this project to our main site, we aim to help users discover TextCipher when searching for secure messaging solutions and self-destructing note services.)*
 
